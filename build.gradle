@@ -1,0 +1,25 @@
+plugins {
+    id 'application'
+}
+
+group = 'registration'
+version = '1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+application {
+    mainClass = 'registration.Main'
+}
+
+tasks.named('run') {
+    standardInput = System.in
+    outputs.upToDateWhen { false }
+}
+
+tasks.withType(JavaExec).configureEach {
+    standardInput = System.in
+}
